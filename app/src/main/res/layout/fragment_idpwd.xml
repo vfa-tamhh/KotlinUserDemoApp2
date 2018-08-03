@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Fragment.IDPwdFragment">
+
+    <LinearLayout
+        android:id="@+id/main_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/dimens_48"
+        android:paddingRight="@dimen/dimens_48"
+        android:paddingTop="@dimen/dimens_8"
+        tools:ignore="UselessParent">
+
+        <EditText
+            android:id="@+id/edt_sign_up_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimens_8"
+            android:background="@drawable/rounded_edittext"
+            android:hint="@string/id_hint"
+            android:imeOptions="actionNext"
+            android:padding="@dimen/dimens_8"
+            android:singleLine="true"
+            android:inputType="text" />
+
+        <EditText
+            android:id="@+id/edt_sign_up_pwd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimens_8"
+            android:background="@drawable/rounded_edittext"
+            android:hint="@string/password_hint"
+            android:imeOptions="actionNext"
+            android:inputType="textPassword"
+            android:padding="@dimen/dimens_8"
+            android:singleLine="true" />
+
+        <EditText
+            android:id="@+id/edt_sign_up_pwd_confirm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimens_8"
+            android:background="@drawable/rounded_edittext"
+            android:hint="@string/password_confirm_hint"
+            android:imeOptions="actionDone"
+            android:inputType="textPassword"
+            android:padding="@dimen/dimens_8"
+            android:singleLine="true" />
+
+        <Button
+            android:id="@+id/btn_sign_up"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:backgroundTint="@color/colorPrimary"
+            android:text="@string/sign_up_title"
+            android:textColor="@color/White" />
+
+        <EditText
+            android:id="@+id/edt_sign_in_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimens_40"
+            android:background="@drawable/rounded_edittext"
+            android:hint="@string/id_hint"
+            android:imeOptions="actionNext"
+            android:padding="@dimen/dimens_8"
+            android:singleLine="true"
+            android:inputType="text" />
+
+        <EditText
+            android:id="@+id/edt_sign_in_pwd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimens_8"
+            android:background="@drawable/rounded_edittext"
+            android:hint="@string/password_hint"
+            android:imeOptions="actionDone"
+            android:inputType="textPassword"
+            android:padding="@dimen/dimens_8"
+            android:singleLine="true" />
+
+        <Button
+            android:id="@+id/btn_sign_in"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:backgroundTint="@color/colorPrimary"
+            android:text="@string/sign_in_title"
+            android:textColor="@color/White" />
+
+    </LinearLayout>
+
+</FrameLayout>

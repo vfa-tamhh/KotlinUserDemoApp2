@@ -1,0 +1,42 @@
+<resources>
+    <string name="app_name">KotlinUserDemoApp2</string>
+    <string name="id_pw">ID/PW</string>
+    <string name="email_pw">Email/PW</string>
+    <string name="anonymous">匿名</string>
+
+    <string name="id_pw_title">ID/PW認証</string>
+    <string name="email_pw_title">Email/PW認証</string>
+    <string name="anonymous_title">匿名認証</string>
+    <string name="loading_title">Please wait...</string>
+
+    <string name="login_success">【ID/PW認証】ログイン成功:</string>
+    <string name="id_pw_registration_failure">【ID / PW 認証】新規登録失敗:</string>
+    <string name="id_pw_login_failure">【ID / PW 認証】ログイン失敗:</string>
+
+    <string name="email_pw_registration_complete">【Email/PW認証】新規登録メール配信完了</string>
+    <string name="message_response_registration_complete">届いたメールに記載されているURLにアクセスし、パスワードを登録してください。</string>
+    <string name="email_pw_registration_failure">【Email/PW認証】新規登録メールの配信に失敗しました:</string>
+
+    <string name="email_pw_login_success">【Email/PW認証】ログイン成功:</string>
+    <string name="email_pw_login_failure">【Email/PW認証】ログイン失敗:</string>
+
+    <string name="anonymous_login_success">【匿名認証】ログイン成功:</string>
+    <string name="anonymous_login_failure">【匿名認証】ログイン失敗:</string>
+
+    <string name="logged_out">ログアウトしました</string>
+
+    <string name="message_error_not_input">入力されていない項目があります</string>
+    <string name="message_error_pwd_do_not_match">パスワードが不一致です</string>
+    <string name="message_error_email_do_not_input">メールアドレスが入力されていません</string>
+    <string name="email_address_hint">Email address</string>
+    <string name="password_hint">Password</string>
+    <string name="id_hint">ID</string>
+    <string name="password_confirm_hint">Password confirm</string>
+    <string name="sign_up_title">Sign up</string>
+    <string name="sign_in_title">Sign in</string>
+    <string name="alert_dialog_title">Alert</string>
+    <string name="ok_dialog_ok">OK</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
