@@ -6,6 +6,8 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.nifty.cloud.mb.core.NCMBException
+import com.nifty.cloud.mb.core.NCMBUser
 import kotlinx.android.synthetic.main.fragment_idpwd.*
 import nifteam.kotlinuserdemoapp2.Mbaas.Callback
 import nifteam.kotlinuserdemoapp2.Mbaas.Mbaas
@@ -44,12 +46,44 @@ class IDPwdFragment : Fragment(), View.OnClickListener {
         } else if (!edt_sign_up_pwd.text.toString().equals(edt_sign_up_pwd_confirm.text.toString())) {
             Utils.showDialog(this.context!!, context!!.resources.getText(R.string.message_error_pwd_do_not_match).toString())
         } else {
-            Mbaas.onSignupByID(edt_sign_up_id.text.toString(), edt_sign_up_pwd.text.toString(), this.context!!, object : Callback {
-                override fun onClickOK() {
-                    Utils.clearField(main_container)
+            Utils.showLoading(this.context!!)
+            Mbaas.onSignupByID(edt_sign_up_id.text.toString(), edt_sign_up_pwd.text.toString(), object : Callback {
+                override fun onSuccess() {
+
+                    Mbaas.signinByID(edt_sign_up_id.text.toString(), edt_sign_up_pwd.text.toString(), object : Callback {
+                        override fun onSuccess() {
+                            Utils.hideLoading()
+                        }
+
+                        override fun onSuccess(ncmbUser: NCMBUser) {
+                            Utils.hideLoading()
+                            Mbaas.userSuccess(context!!.resources.getText(R.string.login_success).toString(),
+                                    ncmbUser, context!!, object : Utils.ClickListener {
+                                override fun onOK() {
+                                    Utils.clearField(main_container)
+                                }
+
+                            })
+                        }
+
+                        override fun onFailure(e: NCMBException) {
+                            Utils.hideLoading()
+                            Mbaas.userError(context!!.resources.getText(R.string.id_pw_login_failure).toString(), e, context!!)
+                        }
+
+                    });
                 }
 
-            })
+                override fun onSuccess(ncmbUser: NCMBUser) {
+                    Utils.hideLoading()
+                }
+
+                override fun onFailure(e: NCMBException) {
+                    Utils.hideLoading()
+                    Mbaas.userError(context!!.resources.getText(R.string.id_pw_registration_failure).toString(), e, context!!)
+                }
+
+            });
         }
     }
 
@@ -57,11 +91,29 @@ class IDPwdFragment : Fragment(), View.OnClickListener {
         if (Utils.isBlankOrEmpty(edt_sign_in_id) || Utils.isBlankOrEmpty(edt_sign_in_pwd)) {
             Utils.showDialog(this.context!!, context!!.resources.getText(R.string.message_error_not_input).toString())
         } else {
-            Mbaas.signinByID(edt_sign_in_id.getText().toString(), edt_sign_in_pwd.getText().toString(), this.context!!, object : Callback {
-                override fun onClickOK() {
-                    Utils.clearField(main_container)
+            Utils.showLoading(this.context!!)
+            Mbaas.signinByID(edt_sign_in_id.getText().toString(), edt_sign_in_pwd.getText().toString(), object : Callback {
+                override fun onSuccess() {
+                    Utils.hideLoading()
                 }
-            })
+
+                override fun onSuccess(ncmbUser: NCMBUser) {
+                    Utils.hideLoading()
+                    Mbaas.userSuccess(context!!.resources.getText(R.string.login_success).toString(),
+                            ncmbUser, context!!, object : Utils.ClickListener {
+                        override fun onOK() {
+                            Utils.clearField(main_container)
+                        }
+
+                    })
+                }
+
+                override fun onFailure(e: NCMBException) {
+                    Utils.hideLoading()
+                    Mbaas.userError(context!!.resources.getText(R.string.id_pw_login_failure).toString(), e, context!!)
+                }
+
+            });
         }
     }
 }
