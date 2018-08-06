@@ -1,9 +1,10 @@
+@file:Suppress("DEPRECATION")
+
 package nifteam.kotlinuserdemoapp2
 
 import android.app.Dialog
 import android.app.ProgressDialog
 import android.content.Context
-import android.view.View
 import android.view.Window
 import android.widget.Button
 import android.widget.EditText

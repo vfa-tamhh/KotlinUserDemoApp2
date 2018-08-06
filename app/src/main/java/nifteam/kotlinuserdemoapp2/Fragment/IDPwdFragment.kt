@@ -43,7 +43,7 @@ class IDPwdFragment : Fragment(), View.OnClickListener {
     private fun sigup() {
         if (Utils.isBlankOrEmpty(edt_sign_up_id) || Utils.isBlankOrEmpty(edt_sign_up_pwd) || Utils.isBlankOrEmpty(edt_sign_up_pwd_confirm)) {
             Utils.showDialog(this.context!!, context!!.resources.getText(R.string.message_error_not_input).toString())
-        } else if (!edt_sign_up_pwd.text.toString().equals(edt_sign_up_pwd_confirm.text.toString())) {
+        } else if (edt_sign_up_pwd.text.toString() != edt_sign_up_pwd_confirm.text.toString()) {
             Utils.showDialog(this.context!!, context!!.resources.getText(R.string.message_error_pwd_do_not_match).toString())
         } else {
             Utils.showLoading(this.context!!)
@@ -71,7 +71,7 @@ class IDPwdFragment : Fragment(), View.OnClickListener {
                             Mbaas.userError(context!!.resources.getText(R.string.id_pw_login_failure).toString(), e, context!!)
                         }
 
-                    });
+                    })
                 }
 
                 override fun onSuccess(ncmbUser: NCMBUser) {
@@ -83,7 +83,7 @@ class IDPwdFragment : Fragment(), View.OnClickListener {
                     Mbaas.userError(context!!.resources.getText(R.string.id_pw_registration_failure).toString(), e, context!!)
                 }
 
-            });
+            })
         }
     }
 
@@ -92,7 +92,7 @@ class IDPwdFragment : Fragment(), View.OnClickListener {
             Utils.showDialog(this.context!!, context!!.resources.getText(R.string.message_error_not_input).toString())
         } else {
             Utils.showLoading(this.context!!)
-            Mbaas.signinByID(edt_sign_in_id.getText().toString(), edt_sign_in_pwd.getText().toString(), object : Callback {
+            Mbaas.signinByID(edt_sign_in_id.text.toString(), edt_sign_in_pwd.text.toString(), object : Callback {
                 override fun onSuccess() {
                     Utils.hideLoading()
                 }
@@ -113,7 +113,7 @@ class IDPwdFragment : Fragment(), View.OnClickListener {
                     Mbaas.userError(context!!.resources.getText(R.string.id_pw_login_failure).toString(), e, context!!)
                 }
 
-            });
+            })
         }
     }
 }

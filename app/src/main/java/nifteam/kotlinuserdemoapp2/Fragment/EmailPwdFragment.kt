@@ -45,7 +45,7 @@ class EmailPwdFragment : Fragment(), View.OnClickListener {
             Utils.showDialog(this.context!!, context!!.resources.getText(R.string.message_error_email_do_not_input).toString())
         } else {
             Utils.showLoading(context!!)
-            Mbaas.signupByEmail(edt_sign_up_mail.getText().toString(), object : Callback {
+            Mbaas.signupByEmail(edt_sign_up_mail.text.toString(), object : Callback {
                 override fun onSuccess() {
                     Utils.hideLoading()
                     Utils.showDialog(context!!, context!!.resources.getText(R.string.email_pw_registration_complete).toString(), object : Utils.ClickListener {
@@ -77,7 +77,7 @@ class EmailPwdFragment : Fragment(), View.OnClickListener {
             Utils.showDialog(this.context!!, context!!.resources.getText(R.string.message_error_not_input).toString())
         } else {
             Utils.showLoading(context!!)
-            Mbaas.signinByEmail(edt_sign_in_mail.getText().toString(), edt_sign_in_pwd.getText().toString(), object : Callback {
+            Mbaas.signinByEmail(edt_sign_in_mail.text.toString(), edt_sign_in_pwd.text.toString(), object : Callback {
                 override fun onSuccess() {
                     Utils.hideLoading()
                 }

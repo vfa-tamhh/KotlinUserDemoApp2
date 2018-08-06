@@ -8,7 +8,8 @@ import android.view.View
 import android.view.ViewGroup
 import com.nifty.cloud.mb.core.NCMBException
 import com.nifty.cloud.mb.core.NCMBUser
-import kotlinx.android.synthetic.main.fragment_email_pwd.*
+import kotlinx.android.synthetic.main.fragment_anonymous.*
+
 import nifteam.kotlinuserdemoapp2.Mbaas.Callback
 import nifteam.kotlinuserdemoapp2.Mbaas.Mbaas
 import nifteam.kotlinuserdemoapp2.Mbaas.Mbaas.userError
